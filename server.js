@@ -35,7 +35,7 @@ var profile = {
     {name: "Philip Dangerfield", relationship: "Brother"},
     {name: "Jacob Dangerfield", relationship: "Brother"},
     {name: "Sarah Dangerfield", relationship: "Sister"}],
-  animals: [
+  pets: [
     {name:"zipper", type:"dog"},
     {name:"pixel", type:"dog"}
     ]
@@ -72,7 +72,7 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "POST", path: "/api/movie", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
   })
 });

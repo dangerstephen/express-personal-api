@@ -4,13 +4,13 @@
 var db = require('./models');
 
 
-var new_campsite = {description: "Sharp rocks. Middle of nowhere."}
+var new_movie = {description: "creating new movies left and right."}
 
-db.Campsite.create(new_campsite, function(err, campsite){
+db.Movie.create(new_movie, function(err, Movie){
   if (err){
     return console.log("Error:", err);
   }
 
-  console.log("Created new campsite", campsite._id)
+  console.log("Created new movie",)
   process.exit(); // we're all done! Exit the program.
 })
