@@ -26,7 +26,7 @@ var profile = {
   birthState: "arizona",
   alive: true,
   githubLink:"https://github.com/dangerstephen",
-  githubProfileImage: "https://avatars2.githubusercontent.com/u/22550925?v=3&s=460",
+  profileImage: "https://avatars2.githubusercontent.com/u/22550925?v=3&s=460",
   personalSiteLink:  "https://dangerstephen.github.io/",
   currentCity: "San Francisco",
   siblings: [
@@ -72,7 +72,7 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/movie", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "POST", path: "/api/movies", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
   })
 });
@@ -80,6 +80,94 @@ app.get('/api', function api_index(req, res) {
 app.get('/api/profile', function index (req, res) {
   res.json({profile});
 });
+
+// get all movies
+app.get('/api/movies', function (req, res) {
+  // find one movie by its id
+  db.Movie.find({})
+    .populate('director')
+    .exec(function(err, movies){
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.json(movies);
+    });
+
+});
+
+
+
+app.get('/api/movies/:id', function (req, res) {
+  // find one movie by its id
+  db.Movie.findById(req.params.id)
+    // populate the director
+    .populate('director')
+    .exec(function(err, movie){
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.json(movie);
+    });
+
+});
+
+
+
+app.post('/api/movies', function (req, res) {
+  // create new movie with form data (`req.body`)
+  var newMovie = new db.Movie({
+    title: req.body.title,
+    trailer: req.body.trailer,
+  });
+  // find the director from req.body
+  db.Director.findOne({name: req.body.director}, function(err, director){
+    if (err) {
+      return console.log(err);
+    }
+
+    if(director === null){
+          console.log("We have encountered a new director");
+
+          var newDirector = new db.Director({
+            name: req.body.Director
+          });
+          newDirector.save();
+
+
+
+    // add this director to the movie
+    newMovie.director = newDirector;
+
+}
+
+    // save newMovie to database
+    newMovie.save(function(err, movie){
+      if (err) {
+        return console.log("save error: " + err);
+      }
+      console.log("saved ", movie.title);
+      // send back the movie!
+      res.json(movie);
+    });
+  });
+
+});
+
+
+// delete movie
+app.delete('/api/movies/:id', function (req, res) {
+  // get movie id from url params (`req.params`)
+  console.log(req.params)
+  var movieId = req.params.id;
+
+  db.Movie.findOneAndRemove({ _id: movieId }, function (err, deletedMovie) {
+    res.json(deletedMovie);
+  });
+});
+// end edit here
+
 
 /**********
  * SERVER *

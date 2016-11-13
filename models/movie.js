@@ -2,7 +2,13 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var MovieSchema = new Schema({
-  description: String
+  title: String,
+  director: {
+    type: Schema.Types.ObjectId,
+    ref: 'Director'
+  },
+  trailer: String,
+  releaseDate: String
 });
 
 var Movie = mongoose.model('Movie', MovieSchema);
