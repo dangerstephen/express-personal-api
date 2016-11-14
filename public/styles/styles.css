@@ -1,11 +1,41 @@
 body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+  background: url('../images/new_year_background.png'); /* Sanity Check! */
   text-align: center;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 15px
 }
 
 h1 {
   margin-top: 100px;
   text-align: center;
+  margin: 30px;
+
+}
+iframe{
+  border: 2px solid grey;
+}
+hr{
+  border: 1px solid grey;
+
+}
+
+h3{
+  font-family: 'Wire One', sans-serif;
+  font-size: 30px;
+}
+h2 {
+  font-size: 50px;
+}
+label{
+  margin: 10px;
+}
+
+h4{
+  font-size: 25px;
+}
+
+button{
+  margin: 7px; 
 }

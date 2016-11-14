@@ -33,7 +33,33 @@ var movies_list = [
   title: "The Social Network",
   director : "David Fincher",
   trailer: "https://www.youtube.com/embed/lB95KLmpLR4"
+  },
+  {
+  title: "Zootopia",
+  director : "Byron Howard",
+  trailer: "https://www.youtube.com/embed/jWM0ct-OLsM"
+  },
+  {
+  title: "Ghostbusters",
+  director : "Paul Feig",
+  trailer: "https://www.youtube.com/embed/w3ugHP-yZXw"
+  },
+  {
+  title: "Jurassic World",
+  director : "Steven Spielberg",
+  trailer: "https://www.youtube.com/embed/RFinNxS5KN4"
+  },
+  {
+  title: "London has Fallen",
+  director : "Babak Najafi",
+  trailer: "https://www.youtube.com/embed/MMbyPhQo75A"
+  },
+  {
+  title: "Italian Job",
+  director : "F. Gary Gray",
+  trailer: "https://www.youtube.com/embed/5Eyw-Qiwpj0"
   }
+
 ];
 
 var directors_list = [
@@ -51,6 +77,27 @@ var directors_list = [
   },
   {
     name: "David Fincher"
+
+  },
+  {
+    name: "Byron Howard"
+
+  },
+  {
+    name: "Paul Feig"
+
+  },
+  {
+    name: "Steven Spielberg"
+
+  },
+  {
+    name: "Babak Najafi"
+
+  },
+  {
+    name: "F. Gary Gray"
+
   }
 ];
 

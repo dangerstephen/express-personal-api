@@ -66,13 +66,13 @@ app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
     woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
-    message: "Welcome to my Stephen's api! Here's what you need to know!",
+    message: "Welcome to my Stephen's api! Here's what you need to know so you can navigate!",
     documentationUrl: "https://github.com/dangerstephen/express_self_api/README.md", // CHANGE ME
     baseUrl: "https://vast-plateau-97777.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/movies", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Basic information of who I am"}, // CHANGE ME
+      {method: "POST", path: "/api/movies", description: "List of all the movies that are listed in my app"} // CHANGE ME
     ]
   })
 });

@@ -3,3 +3,4 @@ var mongoose = require("mongoose");
 
  module.exports.Movie = require("./movie.js");
  module.exports.Director = require("./director.js");
+ module.exports.Profile = require("./myprofile.js");
