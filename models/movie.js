@@ -1,5 +1,7 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
+  Director = require('./director');
+
 
 var MovieSchema = new Schema({
   title: String,
